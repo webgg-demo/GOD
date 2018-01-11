@@ -15,10 +15,10 @@ public class PlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		float translation = Input.GetAxis ("Vertical") * speed * Time.deltaTime;
-		float rotation = Input.GetAxis ("Horizontal") * RotationSpeed * Time.deltaTime;
-		Vector3 diffPos = new Vector3 (0, 0, -translation);
+		float lr = Input.GetAxis ("Horizontal") * speed * Time.deltaTime;
+		Vector3 diffPos = new Vector3 (-lr, 0, -translation);
 
 		transform.Translate(diffPos);
-		transform.Rotate(Vector3.up, rotation);
+		//transform.Rotate(Vector3.up, lr);
 	}
 }
